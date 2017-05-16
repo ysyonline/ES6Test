@@ -1,1 +1,1 @@
-#some Test for ECMAScript
+#some Test for ECMAScript 6

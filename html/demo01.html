@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    //解构赋值
+    let [a, b, c] = [1, 2, 3];
+    console.log(a, b, c);
+
+    let { foo, bar } = {foo: "true", bar: "aaa"}
+    console.log(foo, bar);
+
+    let x = 1;
+    let y = 2;
+    [x,y] = [y, x];
+    console.log(x);
+
+    let json_Data = {
+        "name": "xiaoming",
+        "age": 32,
+        "level": "three",
+        "colors": ["f", "t", "m"]
+    };
+
+    let {name, age, level, colors } = json_Data;
+
+    console.log(name, age, level, JSON.stringify(colors));
+
+    var map = new Map();
+    map.set('address', 'hello');
+    map.set('tel', '132435');
+
+    for (let [x , y] of map) {
+        console.log(x, ":", y);
+    }
+
+    function require(s) {
+        if (s === "source-map") {
+            return {
+                SourceMapConsumer: "/goable/still/ci",
+                SourceNode: ["aNode", "bNode", "cNode"]
+            };
+        }
+    }
+
+    const {SourceMapConsumer, SourceNode} = require("source-map");
+    console.log(JSON.stringify(SourceNode));
+
+</script>
+</body>
+</html>
