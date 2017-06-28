@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js"></script>
+</head>
+<body>
+<script>
+	var arr = [
+		{name: 'bb', age: 56, sel: {level: 'top', depent: false}},
+		{name: 'cc', age: 89, sel: {level: 'room', depent: true}},
+		{name: 'aa', age: 23, sel: {level: 'deep', depent: false}},
+		{name: 're', age: 12, sel: {level: 'cool', depent: false}},
+	];
+
+	var youngest = _.chain(arr)
+		.sortBy("age")
+		.map(function (p1) {
+			return p1.name + " age is " + p1.age;
+		})
+		.first()
+		.value();
+	console.log(youngest);
+
+	var obj = _.find(arr, {sel: {depent: true}});
+	console.log(obj);
+
+	var _arr = _.cloneDeep(arr);
+	console.log(_arr);
+	console.log(_arr === arr);
+
+	console.log(_.isEmpty({}));
+
+	var mm = _.chain(arr)
+		.map('sel')
+        .find({depent: true})
+		.value();
+	console.log(mm);
+</script>
+</body>
+</html>
